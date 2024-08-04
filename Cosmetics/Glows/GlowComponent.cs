@@ -50,7 +50,14 @@ namespace SCPCosmetics.Cosmetics.Glows
 
             Player player = Player.Get(gameObject);
 
-            if (player.Role == RoleTypeId.None || player.Role == RoleTypeId.Spectator || player.CurrentRoom.RoomLightController._flickerDuration > 0f)
+            bool stalking = false;
+            if(player.Role == RoleTypeId.Scp106)
+            {
+                Exiled.API.Features.Roles.Scp106Role role = (Exiled.API.Features.Roles.Scp106Role)player.Role;
+                stalking = role.IsStalking;
+            }
+
+            if (player.Role == RoleTypeId.None || player.Role == RoleTypeId.Spectator || player.Role == RoleTypeId.Filmmaker || player.Role == RoleTypeId.Overwatch || player.CurrentRoom.RoomLightController._flickerDuration > 0f || stalking)
             {
                 GlowLight.Position = Vector3.one * 6000f;
             } else

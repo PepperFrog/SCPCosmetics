@@ -8,6 +8,7 @@
     using SCPCosmetics.Cosmetics.Pets;
     using SCPCosmetics.Types;
     using System;
+    using UnityEngine;
     using System.Collections.Generic;
 
     public class Plugin : Plugin<Config.Config>
@@ -26,8 +27,7 @@
 
         public override void OnEnabled()
         {
-            Instance = this;
-
+            Instance = this;            
             // REGISTER NEW COSMETIC HANDLERS HERE
             CosmeticHandlers = new List<CosmeticHandler>()
             {

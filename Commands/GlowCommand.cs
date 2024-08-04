@@ -37,7 +37,7 @@
                 return true;
             }
 
-            if (!Plugin.Instance.Config.EnableHats)
+            if (!Plugin.Instance.Config.EnableGlows)
             {
                 response = "Glows are disabled on this server.";
                 return false;

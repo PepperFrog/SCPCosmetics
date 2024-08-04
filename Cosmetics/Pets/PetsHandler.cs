@@ -274,23 +274,20 @@ namespace SCPCosmetics.Cosmetics.Pets
 
         public void EventChangingRole(ChangingRoleEventArgs args)
         {
-            Timing.CallDelayed(0.1f, () =>
+            if (args.Player.GameObject.TryGetComponent(out PetComponent oldComponent))
             {
-                if (args.Player.GameObject.TryGetComponent(out PetComponent oldComponent))
+                if (args.Player.ReferenceHub.roleManager.CurrentRole is not FpcStandardRoleBase)
                 {
-                    if (args.Player.ReferenceHub.roleManager.CurrentRole is not FpcStandardRoleBase)
+                    UnityEngine.Object.Destroy(oldComponent);
+                }
+                else
+                {
+                    if (Plugin.Instance.Config.PetsMirrorClass)
                     {
-                        UnityEngine.Object.Destroy(oldComponent);
-                    }
-                    else
-                    {
-                        if (Plugin.Instance.Config.PetsMirrorClass)
-                        {
-                            oldComponent.PetNPC.Role.Set(args.NewRole);
-                        }
+                        oldComponent.PetNPC.Role.Set(args.NewRole);
                     }
                 }
-            });
+            }
         }
         public void EventDied(DiedEventArgs args)
         {
