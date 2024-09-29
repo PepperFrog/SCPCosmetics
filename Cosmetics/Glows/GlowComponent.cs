@@ -3,7 +3,6 @@ using Exiled.API.Features;
 using Exiled.API.Features.Pickups;
 using InventorySystem.Items.Pickups;
 using MapEditorReborn.API.Extensions;
-using MapEditorReborn.API.Features.Objects;
 using Mirror;
 using PlayerRoles;
 using SCPCosmetics.Cosmetics.Extensions;

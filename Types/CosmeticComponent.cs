@@ -11,7 +11,7 @@ namespace SCPCosmetics.Types
     public abstract class CosmeticComponent : MonoBehaviour
     {
         public bool Destroyed = false;
-
+        
         public virtual void UpdateCosmetic()
         {
             if (!Player.TryGet(gameObject, out Player plr))

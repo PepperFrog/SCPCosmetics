@@ -3,9 +3,7 @@
     using Exiled.API.Features;
     using HarmonyLib;
     using MEC;
-    using SCPCosmetics.Cosmetics.Glows;
-    using SCPCosmetics.Cosmetics.Hats;
-    using SCPCosmetics.Cosmetics.Pets;
+    using SCPCosmetics.Cosmetics.Glows;   
     using SCPCosmetics.Types;
     using System;
     using UnityEngine;
@@ -19,8 +17,8 @@
 
         public static Plugin Instance { get; set; }
 
-        public int PetIDNumber = 1000;
-        private Harmony _harmony;
+        //public int PetIDNumber = 1000;
+        //private Harmony _harmony;
         private CoroutineHandle updateLoop;
 
         public List<CosmeticHandler> CosmeticHandlers = new List<CosmeticHandler>();
@@ -31,9 +29,9 @@
             // REGISTER NEW COSMETIC HANDLERS HERE
             CosmeticHandlers = new List<CosmeticHandler>()
             {
-                new HatsHandler(),
+                //new HatsHandler(),
                 new GlowsHandler(),
-                new PetsHandler(),
+                //new PetsHandler(),
             };
             foreach (CosmeticHandler cosmeticHandler in CosmeticHandlers)
             {
@@ -42,11 +40,11 @@
 
             updateLoop = Timing.RunCoroutine(UpdateDistributor());
 
-            if (_harmony is null)
-            {
-                _harmony = new("SCPCosmetics");
-                _harmony.PatchAll();
-            }
+            //if (_harmony is null)
+            //{
+            //    _harmony = new("SCPCosmetics");
+            //    _harmony.PatchAll();
+            //}
             base.OnEnabled();
         }
 

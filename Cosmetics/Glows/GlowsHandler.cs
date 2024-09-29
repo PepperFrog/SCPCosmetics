@@ -1,7 +1,6 @@
 ﻿using Exiled.API.Features;
 using Exiled.Events.EventArgs.Player;
 using PlayerRoles;
-using SCPCosmetics.Cosmetics.Hats;
 using SCPCosmetics.Types;
 using UnityEngine;
 using PlayerEvents = Exiled.Events.Handlers.Player;
